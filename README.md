@@ -51,7 +51,7 @@ If you loss the game, you will get the answer and a try again message
 
 
 ## Getting Started
-<link>
+https://ryannez.github.io/Five-Letters/
 
 
 ## Next Steps
