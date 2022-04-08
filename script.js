@@ -92,7 +92,7 @@ keys.forEach(keyboard => {
 
 
 function appendLetter(event) {
-    let choseLetter = event.target.innerText
+    let choseLetter = event.target.innerText.trim()
     if (choseLetter === "DELETE" || choseLetter === "ENTER") {
         return 
     }
@@ -155,12 +155,10 @@ function checkLetters() {
             boxes[currentRound][j].classList.add("correct_spot")
             document.getElementById(guessLetters[j]).classList.add("correct_spot")
             answerCopy[j] = "!"
-            console.log(answerCopy)
         }
     }
 
     if ( guessLetters.join("") === answer) {
-        console.log("You are a Genius!")
         var popup = document.getElementById("myPopup")
         popup.classList.toggle("show")
 
@@ -175,10 +173,9 @@ function checkLetters() {
                 boxes[currentRound][j].classList.add("correct_letter")
                 document.getElementById(guessLetters[j]).classList.add("correct_letter")
                 answerCopy[firstIndex] = "?"
-                console.log(answerCopy)
             } else {
                 boxes[currentRound][j].classList.add("incorrect_letter")
-                document.getElementById(guessLetters[j]).classList.add("incorrect_letter")
+                $(`#${guessLetters[j]}`).addClass("incorrect_letter")
             }
         }
     
@@ -189,7 +186,6 @@ function checkLetters() {
     //go to next round
     currentRound += 1
     if (currentRound === numRounds && guessLetters.join("") !== answer) {
-        console.log("try again")
         var popup2 = document.getElementById("myPopup2")
         popup2.innerHTML = `It is ${answer}, Try Again!`
         popup2.classList.toggle("show")
